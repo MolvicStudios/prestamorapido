@@ -1,7 +1,7 @@
-// Analytics Snippet v3.0 — minicreditos.pro
+// Analytics Snippet v3.0 — prestamorapido.pro
 
 ;(function () {
-  var SITE     = 'minicreditos.pro'
+  var SITE     = 'prestamorapido.pro'
   var ENDPOINT = 'https://molvicstudios-analytics.josemmolera.workers.dev/track'
   var USER_KEY = 'ms_uid'
 
