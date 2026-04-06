@@ -5,66 +5,66 @@
 
 /* ── CSS Variables ────────────────────────────────── */
 :root {
-  /* Paleta principal — índigo claro profesional */
-  --color-primary:        #E9A800;
-  --color-primary-light:  #EFF6FF;
-  --color-primary-mid:    #3B82F6;
-  --color-primary-dark:   #1D4ED8;
+  /* Paleta Editorial — rojo granate sobre crema */
+  --color-primary:        #C0392B;
+  --color-primary-light:  #FDF2F0;
+  --color-primary-mid:    #E74C3C;
+  --color-primary-dark:   #962D22;
 
-  /* Acento — verde esmeralda */
-  --color-accent:         #10B981;
-  --color-accent-light:   #ECFDF5;
+  /* Acento — dorado editorial */
+  --color-accent:         #E9A800;
+  --color-accent-light:   #FFF8E1;
 
   /* Tipos de entidad */
-  --color-directo:        #2563EB;
-  --color-directo-bg:     #EFF6FF;
-  --color-broker:         #7C3AED;
-  --color-broker-bg:      #F5F3FF;
+  --color-directo:        #2980B9;
+  --color-directo-bg:     #EBF5FB;
+  --color-broker:         #8E44AD;
+  --color-broker-bg:      #F5EEF8;
 
   /* Badges especiales */
-  --color-free:           #F59E0B;
-  --color-free-bg:        #FFFBEB;
-  --color-asnef:          #10B981;
-  --color-asnef-bg:       #ECFDF5;
-  --color-nomina:         #6366F1;
-  --color-nomina-bg:      #EEF2FF;
-  --color-speed:          #0EA5E9;
-  --color-speed-bg:       #F0F9FF;
+  --color-free:           #E9A800;
+  --color-free-bg:        #FFF8E1;
+  --color-asnef:          #27AE60;
+  --color-asnef-bg:       #EAFAF1;
+  --color-nomina:         #6C5CE7;
+  --color-nomina-bg:      #F0EDFF;
+  --color-speed:          #00B4D8;
+  --color-speed-bg:       #E8F8FD;
 
   /* Textos */
-  --color-text:           #111827;
-  --color-text-muted:     #6B7280;
-  --color-text-light:     #9CA3AF;
+  --color-text:           #2C3E50;
+  --color-text-muted:     #7F8C8D;
+  --color-text-light:     #BDC3C7;
 
   /* Fondos */
-  --color-bg:             #F9FAFB;
+  --color-bg:             #FAF7F2;
   --color-surface:        #FFFFFF;
-  --color-surface-alt:    #F3F4F6;
+  --color-surface-alt:    #F5F0E8;
 
   /* Bordes */
-  --color-border:         #E5E7EB;
-  --color-border-strong:  #D1D5DB;
+  --color-border:         #E8E0D4;
+  --color-border-strong:  #D4C9B8;
 
   /* Sombras */
-  --shadow-sm:   0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
-  --shadow-md:   0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
-  --shadow-lg:   0 10px 30px rgba(0,0,0,.10), 0 4px 8px rgba(0,0,0,.04);
-  --shadow-card: 0 2px 8px rgba(37,99,235,.06), 0 1px 3px rgba(0,0,0,.06);
-  --shadow-card-hover: 0 8px 24px rgba(37,99,235,.12), 0 2px 6px rgba(0,0,0,.06);
+  --shadow-sm:   0 1px 3px rgba(44,62,80,.06), 0 1px 2px rgba(44,62,80,.04);
+  --shadow-md:   0 4px 12px rgba(44,62,80,.08), 0 2px 4px rgba(44,62,80,.04);
+  --shadow-lg:   0 10px 30px rgba(44,62,80,.10), 0 4px 8px rgba(44,62,80,.04);
+  --shadow-card: 0 2px 8px rgba(192,57,43,.04), 0 1px 3px rgba(44,62,80,.06);
+  --shadow-card-hover: 0 8px 24px rgba(192,57,43,.08), 0 2px 6px rgba(44,62,80,.06);
 
   /* Radios */
-  --radius-sm:   6px;
-  --radius-md:   12px;
-  --radius-lg:   16px;
-  --radius-xl:   24px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
   --radius-full: 9999px;
 
   /* Tipografía */
-  --font-sans: 'Figtree', system-ui, -apple-system, sans-serif;
-  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
 
   /* Transiciones */
-  --transition: 0.18s ease;
+  --transition: 0.2s ease;
 
   --nav-h: 58px;
   --max-w: 1060px;
@@ -1218,4 +1218,150 @@ img, svg { display: block; max-width: 100%; }
 
 .pais-card strong {
   color: var(--color-text);
+}
+
+/* ══════════════════════════════════════════════════
+   THEME: EDITORIAL / WARM — prestamorapido.pro
+   ══════════════════════════════════════════════════ */
+
+/* Warm header */
+#header {
+  background: rgba(250,247,242,0.95);
+  border-bottom: 1px solid var(--color-border);
+}
+@media (max-width: 767px) {
+  .nav-links {
+    background: rgba(250,247,242,0.98);
+  }
+}
+
+/* Editorial hero with subtle pattern */
+#hero {
+  background:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C0392B' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(180deg, #FAF7F2 0%, #F5F0E8 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-label {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: rgba(192,57,43,.15);
+}
+
+#hero h1 {
+  font-style: normal;
+}
+#hero h1 em {
+  color: var(--color-primary);
+  font-style: italic;
+}
+
+/* Section headings with gold accent border */
+#how-it-works h2,
+#education h2,
+#glossary h2,
+#faq h2,
+#paises h2 {
+  position: relative;
+  padding-bottom: 16px;
+}
+#how-it-works h2::after,
+#education h2::after,
+#glossary h2::after,
+#faq h2::after,
+#paises h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* Elegant buttons */
+.btn-primary, .btn-search {
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(192,57,43,.2);
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover, .btn-primary:focus-visible,
+.btn-search:hover {
+  background: var(--color-primary-dark);
+  box-shadow: 0 4px 16px rgba(192,57,43,.3);
+}
+
+.btn-solicitar {
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(192,57,43,.2);
+}
+.btn-solicitar:hover {
+  box-shadow: 0 4px 12px rgba(192,57,43,.3);
+}
+
+/* Editorial cards with top accent border */
+.result-card {
+  border-radius: var(--radius-md);
+  border-top: 3px solid var(--color-accent);
+  position: relative;
+}
+.result-card:hover {
+  border-top-color: var(--color-primary);
+}
+
+/* Filter buttons - softer style */
+.country-tab, .plazo-btn, .tipo-btn, .extra-btn {
+  border-radius: var(--radius-sm);
+}
+.country-tab.active, .plazo-btn.active, .tipo-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Search box */
+.search-box {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+/* Step number */
+.step-number {
+  background: var(--color-primary);
+}
+
+/* Section backgrounds */
+.step, .edu-card, .pais-card {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.faq-item {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+.faq-item[open] {
+  border-color: var(--color-primary);
+}
+
+/* Glossary */
+.glossary-search {
+  background: var(--color-surface);
+  border-color: var(--color-border-strong);
+}
+
+/* Dark elegant footer */
+#footer {
+  background: #1A1A2E;
+}
+.footer-brand .logo-text { color: #fff; }
+
+/* Cookie banner */
+.cookie-banner {
+  background: #1A1A2E;
+  border-top: 1px solid rgba(192,57,43,.2);
 }
