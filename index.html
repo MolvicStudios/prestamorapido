@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Préstamo Rápido Online · Comparador Gratis Colombia y LATAM</title>
+  <meta name="description" content="Compara préstamos rápidos online en Colombia, México y España. Prestamistas directos verificados. Sin letra pequeña. Tú decides.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://prestamorapido.pro/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Préstamo Rápido Online · Comparador Gratis">
+  <meta property="og:description" content="Compara minicréditos y préstamos rápidos en España, México y Colombia. Información clara sobre prestamistas directos y brokers. Sin letra pequeña.">
+  <meta property="og:url" content="https://prestamorapido.pro/">
+  <meta property="og:type" content="website">
+  <!-- TODO: crear og-image.png 1200x630 -->
+  <meta property="og:image" content="https://prestamorapido.pro/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="prestamorapido.pro">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Préstamo Rápido · Comparador Gratis España y LATAM">
+  <meta name="twitter:description" content="Compara préstamos rápidos en España, México y Colombia. Gratis, claro y sin letra pequeña.">
+  <meta name="twitter:image" content="https://prestamorapido.pro/assets/og-image.png">
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="es-ES" href="https://prestamorapido.pro/?pais=es">
+  <link rel="alternate" hreflang="es-MX" href="https://prestamorapido.pro/?pais=mx">
+  <link rel="alternate" hreflang="es-CO" href="https://prestamorapido.pro/?pais=co">
+
+  <!-- MyLead verification -->
+  <meta name="mylead-verification" content="c48768fd7ff97997507ecca6ff5b908f">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#2563EB">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PréstamoRápido",
+    "url": "https://prestamorapido.pro",
+    "description": "Comparador gratuito de préstamos rápidos en Colombia y LATAM",
+    "inLanguage": "es"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       HEADER / NAVBAR
+  ═══════════════════════════════════ -->
+  <header id="header">
+    <nav class="nav-inner container">
+      <a href="/" class="logo" aria-label="prestamorapido.pro — Inicio">
+        <span class="logo-text">prestamorapido.pro</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#results">Comparar</a></li>
+        <li><a href="#how-it-works">¿Cómo funciona?</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#glossary">Glosario</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════
+         HERO — Buscador
+    ═══════════════════════════════════ -->
+    <section id="hero" aria-label="Buscador de minicréditos">
+      <div class="hero-inner container">
+        <p class="hero-label">Comparador gratuito · España y Latinoamérica</p>
+        <h1>Encuentra el préstamo rápido que necesitas, <em>sin letra pequeña.</em></h1>
+        <p class="hero-sub">Comparamos préstamos rápidos online en Colombia, México y España. Desembolso inmediato, sin comisiones ocultas. Tú decides.</p>
+
+        <!-- Buscador -->
+        <div class="search-box" role="search" aria-label="Filtros de búsqueda">
+
+          <!-- Selector de país -->
+          <div class="filter-group">
+            <span class="filter-label">País</span>
+            <div class="country-tabs" id="countryTabs" role="tablist" aria-label="Seleccionar país">
+              <!-- Generado dinámicamente por app.js -->
+            </div>
+          </div>
+
+          <!-- Slider de cantidad -->
+          <div class="filter-group">
+            <div class="amount-header">
+              <span class="filter-label">Importe</span>
+              <span class="amount-display" id="amountDisplay" aria-live="polite">—</span>
+            </div>
+            <input
+              type="range"
+              id="amountSlider"
+              class="slider"
+              min="0"
+              max="100"
+              value="50"
+              aria-label="Seleccionar importe"
+              aria-valuetext="Importe seleccionado"
+            >
+            <div class="slider-limits">
+              <span id="sliderMin">—</span>
+              <span id="sliderMax">—</span>
+            </div>
+          </div>
+
+          <!-- Selector de plazo -->
+          <div class="filter-group">
+            <span class="filter-label">Plazo</span>
+            <div class="plazo-buttons" id="plazoBtns" role="group" aria-label="Seleccionar plazo">
+              <button class="plazo-btn" data-plazo="7" type="button">7 días</button>
+              <button class="plazo-btn" data-plazo="15" type="button">15 días</button>
+              <button class="plazo-btn active" data-plazo="30" type="button">30 días</button>
+              <button class="plazo-btn" data-plazo="60" type="button">60 días</button>
+              <button class="plazo-btn" data-plazo="90" type="button">90 días</button>
+              <button class="plazo-btn" data-plazo="180" type="button">6 meses</button>
+              <button class="plazo-btn" data-plazo="365" type="button">12 meses</button>
+            </div>
+          </div>
+
+          <!-- Toggle tipo -->
+          <div class="filter-group">
+            <span class="filter-label">Tipo de entidad</span>
+            <div class="tipo-buttons" id="tipoBtns" role="group" aria-label="Tipo de entidad">
+              <button class="tipo-btn active" data-tipo="todos" type="button">Todos</button>
+              <button class="tipo-btn" data-tipo="prestamista_directo" type="button">Prestamista directo</button>
+              <button class="tipo-btn" data-tipo="broker" type="button">Broker</button>
+            </div>
+          </div>
+
+          <!-- Filtros extra: ASNEF y Aval coche -->
+          <div class="filter-group">
+            <span class="filter-label">Filtros adicionales</span>
+            <div class="extra-btns" id="extraBtns" role="group" aria-label="Filtros adicionales">
+              <button class="extra-btn" data-filter="asnef" type="button" aria-pressed="false">Acepta ASNEF</button>
+              <button class="extra-btn" data-filter="aval" type="button" aria-pressed="false">Aval de coche</button>
+              <button class="extra-btn" data-filter="sin_nomina" type="button" aria-pressed="false" title="Filtrar entidades que no exigen nómina ni contrato fijo">Sin nómina</button>
+              <button class="extra-btn" data-filter="primer_gratis" type="button" aria-pressed="false" title="Filtrar entidades con primer préstamo gratuito al 0%">🎁 1er préstamo gratis</button>
+            </div>
+          </div>
+
+          <button class="btn-primary btn-search" id="btnSearch" type="button">Ver resultados</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         RESULTADOS
+    ═══════════════════════════════════ -->
+    <section id="results" aria-label="Resultados de la búsqueda">
+      <div class="container">
+        <p class="results-count" id="resultsCount" aria-live="polite" aria-atomic="true"></p>
+
+        <div class="results-grid" id="resultsGrid" role="list" aria-label="Listado de entidades">
+          <!-- Cards generadas dinámicamente -->
+          <div class="results-loading" id="resultsLoading" aria-label="Cargando resultados">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <p>Cargando entidades…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         CÓMO FUNCIONA
+    ═══════════════════════════════════ -->
+    <section id="how-it-works" aria-label="Cómo funciona el comparador">
+      <div class="container">
+        <h2>¿Cómo funciona?</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number" aria-hidden="true">1</div>
+            <h3>Selecciona tu país, importe y plazo</h3>
+            <p>Elige el país donde resides, el importe que necesitas y en cuántos días podrías devolverlo.</p>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">2</div>
+            <h3>Compara las entidades disponibles</h3>
+            <p>Te mostramos prestamistas directos y brokers con su información clave: importes, plazos, velocidad y condiciones.</p>
+          </div>
+          <div class="step">
+            <div class="step-number" aria-hidden="true">3</div>
+            <h3>Haz clic en "Solicitar"</h3>
+            <p>Vas directamente a la web de la entidad elegida. Nosotros no intervenimos en la solicitud ni en la decisión.</p>
+          </div>
+        </div>
+        <p class="how-note">Somos un <strong>comparador informativo gratuito</strong> de minicréditos y préstamos rápidos. No cobramos nada a los usuarios. Disponible para España, México y Colombia.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         SECCIÓN EDUCATIVA
+    ═══════════════════════════════════ -->
+    <section id="education" aria-label="Guía educativa sobre minicréditos">
+      <div class="container">
+        <h2>¿No sabes por dónde empezar?</h2>
+        <div class="edu-grid">
+          <article class="edu-card">
+            <h3>¿Qué diferencia hay entre un broker y un prestamista directo?</h3>
+            <p><strong>Broker:</strong> actúa como intermediario entre tú y varias entidades. Puede darte más opciones pero añade un paso al proceso.</p>
+            <p><strong>Prestamista directo:</strong> es la entidad que te presta su propio dinero. El proceso es más directo y rápido.</p>
+          </article>
+          <article class="edu-card">
+            <h3>¿Qué es la TAE y por qué es tan alta en los minicréditos?</h3>
+            <p>La TAE anualiza el coste total del préstamo. En minicréditos de 30 días, un coste de 45 € sobre 300 € resulta en una TAE de miles por ciento, aunque en euros sea una cantidad pequeña.</p>
+            <p>Lo importante es el <strong>coste total en tu moneda</strong>, no la TAE en sí.</p>
+          </article>
+          <article class="edu-card">
+            <h3>¿Puedo pedir un minicrédito si estoy en una lista de morosos?</h3>
+            <p>Depende del país y la entidad. En España algunos prestamistas aceptan solicitantes en ASNEF para importes reducidos.</p>
+            <p>En LATAM las condiciones varían. Verifica siempre con la entidad antes de solicitar.</p>
+          </article>
+          <article class="edu-card">
+            <h3>¿Qué pasa si no puedo devolver el dinero a tiempo?</h3>
+            <p>Contacta con el prestamista <strong>antes del vencimiento</strong>. La mayoría ofrece prórroga o refinanciación con coste adicional.</p>
+            <p>Ignorar el impago genera intereses de demora y puede afectar negativamente tu historial crediticio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════
+         FAQ — Preguntas frecuentes
+    ═══════════════════════════════════ -->
+    <section id="faq" aria-label="Preguntas frecuentes sobre minicréditos">
+      <div class="container">
+        <h2>Preguntas frecuentes</h2>
+        <p class="faq-intro">Todo lo que necesitas saber antes de solicitar un crédito rápido online.</p>
+
+        <div class="faq-list">
+
+          <details class="faq-item" open>
+            <summary class="faq-question">¿Qué es un minicrédito y cómo funciona?</summary>
+            <div class="faq-answer">
+              <p>Un <strong>minicrédito</strong> es un préstamo de pequeño importe (generalmente entre 50€ y 1.000€) con un plazo de devolución corto, normalmente de 15 a 45 días. Se solicita completamente online y la respuesta suele ser inmediata. Son útiles para cubrir gastos imprevistos hasta el próximo cobro.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Puedo pedir un minicrédito estando en ASNEF?</summary>
+            <div class="faq-answer">
+              <p>En España, algunos <strong>prestamistas directos aceptan solicitudes con ASNEF</strong>, especialmente para importes reducidos. En México y Colombia los ficheros de morosos funcionan de forma diferente. Las condiciones varían según la entidad, por eso es importante comparar antes de solicitar.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Cuánto tarda en llegar el dinero?</summary>
+            <div class="faq-answer">
+              <p>La mayoría de prestamistas online resuelven la solicitud en <strong>menos de 15 minutos</strong>. Si tu banco admite transferencias inmediatas, el dinero puede estar en tu cuenta en menos de una hora. Algunos operan 24 horas al día, incluidos fines de semana.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Qué diferencia hay entre un broker y un prestamista directo?</summary>
+            <div class="faq-answer">
+              <p>Un <strong>prestamista directo</strong> es la entidad que te presta su propio dinero — el proceso es más directo y rápido. Un <strong>broker</strong> actúa como intermediario y puede enviarte a varias entidades a la vez, lo que puede aumentar tus probabilidades de aprobación pero añade un paso al proceso.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Qué es la TAE y por qué es tan alta?</summary>
+            <div class="faq-answer">
+              <p>La <strong>TAE</strong> (Tasa Anual Equivalente) anualiza el coste total del préstamo. En minicréditos de 30 días, un coste de 45€ sobre 300€ resulta en una TAE de miles por ciento, aunque en dinero sea una cantidad pequeña. Lo que realmente importa es el <strong>coste total en euros</strong>, no la TAE.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Los minicréditos son seguros y legales en España?</summary>
+            <div class="faq-answer">
+              <p>Sí. En España los minicréditos están regulados. Los prestamistas deben estar inscritos en el <strong>Registro Oficial del Banco de España</strong>. En México, la CONDUSEF supervisa a las entidades de crédito. En Colombia, la Superintendencia Financiera. Verifica siempre que la entidad esté registrada antes de solicitar.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Qué pasa si no puedo devolver el minicrédito a tiempo?</summary>
+            <div class="faq-answer">
+              <p>Contacta con el prestamista <strong>antes del vencimiento</strong>. La mayoría ofrecen prórroga o refinanciación con un coste adicional. Ignorar el impago genera intereses de demora y puede afectar negativamente tu historial crediticio e incluirte en ficheros de morosos.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Puedo pedir un crédito rápido sin nómina?</summary>
+            <div class="faq-answer">
+              <p>Algunos prestamistas aceptan solicitudes de <strong>autónomos, desempleados o personas sin nómina fija</strong> si pueden demostrar otros ingresos regulares (pensiones, alquileres, freelance). Cada entidad tiene sus propios criterios. Consulta las condiciones antes de solicitar.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Puedo pedir un préstamo en EE.UU. si soy indocumentado o tengo ITIN?</summary>
+            <div class="faq-answer">
+              <p>Sí, algunos prestamistas como <strong>Oportun</strong> aceptan el ITIN como identificación alternativa al número de Seguridad Social (SSN). No todos los estados permiten esta práctica, por lo que es importante verificar la disponibilidad en tu estado antes de solicitar. No necesitas historial crediticio previo en EE.UU.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Qué es el Credit Score y cómo me afecta?</summary>
+            <div class="faq-answer">
+              <p>El <strong>Credit Score</strong> es una puntuación del 300 al 850 que evalúa tu historial crediticio en EE.UU. Si eres nuevo en el país, probablemente no tengas uno todavía. Algunos prestamistas especializados en la comunidad hispana, como Oportun, no lo requieren. Usar estos préstamos responsablemente puede ayudarte a construir tu historial.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Cuál es la diferencia entre un payday loan y un préstamo a plazos en EE.UU.?</summary>
+            <div class="faq-answer">
+              <p>Un <strong>payday loan</strong> se devuelve en un solo pago en tu próximo día de cobro (generalmente 14-30 días). Un <strong>préstamo a plazos</strong> (installment loan) se devuelve en cuotas mensuales durante varios meses. Los préstamos a plazos suelen ser más manejables y algunos ayudan a construir historial crediticio.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         GLOSARIO
+    ═══════════════════════════════════ -->
+    <section id="glossary" aria-label="Glosario financiero">
+      <div class="container">
+        <h2>Glosario financiero</h2>
+        <p class="glossary-intro">Términos financieros explicados en lenguaje claro y sin tecnicismos.</p>
+
+        <div class="glossary-search-wrapper">
+          <label for="glossarySearch" class="visually-hidden">Buscar término en el glosario</label>
+          <input
+            type="search"
+            id="glossarySearch"
+            class="glossary-search"
+            placeholder="Buscar término…"
+            aria-label="Filtrar términos del glosario"
+            autocomplete="off"
+          >
+        </div>
+
+        <dl class="glossary-list" id="glossaryList">
+
+          <div class="glossary-item" data-term="minicrédito microcrédito">
+            <dt>Minicrédito / Microcrédito</dt>
+            <dd>Préstamo de pequeño importe (generalmente entre 50 € y varios cientos de euros) que se devuelve en un plazo corto, normalmente entre 7 y 90 días. Se solicita íntegramente online y la respuesta suele ser inmediata o en pocas horas.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="prestamista directo">
+            <dt>Prestamista directo</dt>
+            <dd>Entidad financiera que presta directamente su propio dinero al solicitante. No hay intermediarios. El contrato se firma directamente con la empresa que presta el dinero.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="broker intermediario financiero">
+            <dt>Broker / Intermediario financiero</dt>
+            <dd>Empresa que actúa de puente entre el solicitante y varias entidades prestamistas. Permite comparar varias opciones con un solo formulario, pero añade un paso al proceso. Algunos cobran honorarios al cliente; otros se financian con comisiones de las entidades.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="TAE tasa anual equivalente">
+            <dt>TAE (Tasa Anual Equivalente)</dt>
+            <dd>Indicador que refleja el coste total anual de un préstamo, incluyendo intereses y comisiones. En minicréditos de muy corto plazo puede parecer desorbitada (cientos o miles de por ciento) aunque el coste real en euros sea modesto. Siempre consulta el coste total en dinero, no solo la TAE.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="TIN tipo interés nominal">
+            <dt>TIN (Tipo de Interés Nominal)</dt>
+            <dd>El tipo de interés puro del préstamo, sin tener en cuenta comisiones ni otros gastos. Es menor que la TAE, que sí incluye todos los costes. El TIN solo refleja los intereses, no el coste total real del préstamo.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="honorarios minicréditos">
+            <dt>Honorarios (en minicréditos)</dt>
+            <dd>En algunos países de LATAM (especialmente cuando interviene un broker), se llama "honorarios" al importe cobrado por la gestión o intermediación. Estos son costes que se suman al capital prestado. Siempre deben estar claramente indicados antes de firmar.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="plazo devolución">
+            <dt>Plazo de devolución</dt>
+            <dd>El tiempo acordado para devolver el dinero prestado más los intereses y comisiones aplicables. En minicréditos, el plazo suele ser entre 7 y 90 días. Pasado este plazo sin abonar, se aplican intereses de demora.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="ASNEF fichero morosos España">
+            <dt>ASNEF (España)</dt>
+            <dd>Fichero de morosos español gestionado por EQUIFAX. Registra impagos de personas físicas y jurídicas. Estar en ASNEF dificulta el acceso al crédito, aunque algunos prestamistas de minicréditos aceptan solicitudes de personas inscritas en este fichero, normalmente para importes pequeños.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="buró de crédito México historial crediticio">
+            <dt>Buró de Crédito (México)</dt>
+            <dd>Empresa privada mexicana que recopila el historial crediticio de personas y empresas. Su nombre oficial es Círculo de Crédito o Buró de Crédito (Trans Union). Los prestamistas lo consultan para evaluar la solvencia del solicitante.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="datacredito Colombia historial crediticio">
+            <dt>DataCrédito (Colombia)</dt>
+            <dd>Sistema de información crediticia de Colombia operado por Experian. Registra tanto el historial positivo como negativo. Estar reportado negativamente en DataCrédito puede dificultar la aprobación de créditos.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="DICOM Chile registro deudores">
+            <dt>Dicom (Chile)</dt>
+            <dd>Registro de deudores morosos en Chile, gestionado por Equifax. Incluye personas con deudas impagas en el sistema financiero chileno. Estar en Dicom dificulta el acceso al crédito formal.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="Infocorp Perú historial crediticio">
+            <dt>Infocorp (Perú)</dt>
+            <dd>Sistema de información crediticia de Perú operado por Equifax. Consolida el historial de crédito de personas naturales y jurídicas, incluyendo deudas en el sistema financiero formal.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="prórroga extensión plazo minicrédito">
+            <dt>Prórroga / Extensión de plazo</dt>
+            <dd>Opción ofrecida por muchos prestamistas para aplazar la fecha de vencimiento del préstamo a cambio de un pago adicional. Permite ganar más días para devolver el dinero. Siempre solicítala antes del vencimiento, no después.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="impago mora deuda vencida">
+            <dt>Impago / Mora</dt>
+            <dd>Situación en la que el deudor no abona el préstamo en la fecha acordada. Genera intereses de demora adicionales y puede llevar a la inclusión del deudor en ficheros de morosos. En todos los países, el prestamista puede iniciar acciones legales de cobro.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="open banking verificación bancaria digital">
+            <dt>Open Banking / Verificación bancaria</dt>
+            <dd>Tecnología que permite a un prestamista acceder de forma temporal y segura a tus movimientos bancarios (con tu permiso) para evaluar tu solvencia. Sustituye al envío de nóminas o extractos. Muchos prestamistas de minicréditos lo usan para agilizar la aprobación.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="capacidad de pago solvencia financiera">
+            <dt>Capacidad de pago / Solvencia</dt>
+            <dd>Evaluación que hace el prestamista para determinar si el solicitante puede devolver el préstamo en el plazo acordado. Se basa en los ingresos, gastos habituales y deudas existentes. Una buena capacidad de pago aumenta las probabilidades de aprobación.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="credit score puntaje crediticio EE.UU. Estados Unidos">
+            <dt>Credit Score / Puntaje crediticio</dt>
+            <dd>Sistema de puntuación crediticia usado en EE.UU. (escala de 300 a 850, gestionado por Equifax, Experian y TransUnion). Equivalente aproximado al historial de crédito en España o el Buró en México. Cuanto más alto, mejores condiciones de préstamo.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="ITIN individual taxpayer identification number inmigrante sin SSN">
+            <dt>ITIN (Individual Taxpayer Identification Number)</dt>
+            <dd>Número de identificación fiscal emitido por el IRS para personas sin número de Seguridad Social (SSN). Muchos prestamistas orientados a inmigrantes lo aceptan como identificación alternativa en lugar del SSN.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="payday loan minicrédito americano corto plazo">
+            <dt>Payday Loan</dt>
+            <dd>Préstamo de muy corto plazo (generalmente 14-30 días, hasta el próximo cobro / “payday”) de pequeño importe. Equivalente americano al microcrédito europeo. Las tasas de interés anualizadas (APR) son muy altas, aunque el coste real en dólares puede ser modesto para plazos tan cortos.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="title loan préstamo título vehículo aval coche EE.UU.">
+            <dt>Title Loan (Préstamo con título de vehículo)</dt>
+            <dd>Préstamo garantizado con el título de propiedad de un vehículo. El prestatario conserva el coche pero el prestamista retiene el título como garantía. Si no se paga, el prestamista puede ejecutar el vehículo.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="APR annual percentage rate TAE americana tasa anual">
+            <dt>APR (Annual Percentage Rate)</dt>
+            <dd>Equivalente americano de la TAE española. Refleja el coste total anual del préstamo incluyendo intereses y comisiones. En préstamos de muy corto plazo puede parecer muy elevado aunque el coste real en dólares sea pequeño.</dd>
+          </div>
+
+          <div class="glossary-item" data-term="CFPB Consumer Financial Protection Bureau regulador EE.UU.">
+            <dt>CFPB (Consumer Financial Protection Bureau)</dt>
+            <dd>Agencia federal estadounidense que supervisa y regula a los prestamistas de consumo para proteger a los prestatarios de prácticas abusivas. Equivalente aproximado al Banco de España o la CONDUSEF mexicana.</dd>
+          </div>
+
+        </dl>
+
+        <p class="glossary-empty" id="glossaryEmpty" hidden>No se encontraron términos para "<span id="glossaryQuery"></span>".</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         PAÍSES — Contenido indexable LATAM
+    ═══════════════════════════════════ -->
+    <section id="paises" aria-label="Minicréditos por país">
+      <div class="container">
+        <h2>Préstamos rápidos por país</h2>
+        <div class="paises-grid">
+
+          <article class="pais-card">
+            <h3>🇪🇸 Minicréditos en España</h3>
+            <p>En España puedes solicitar minicréditos online de <strong>50€ a 1.200€</strong> en minutos. Algunas entidades aceptan solicitantes en ASNEF. El Banco de España supervisa y regula a todos los prestamistas registrados. Los plazos habituales son de 15 a 45 días.</p>
+          </article>
+
+          <article class="pais-card">
+            <h3>🇲🇽 Créditos rápidos en México</h3>
+            <p>En México los préstamos rápidos online van de <strong>$500 a $15.000 MXN</strong>. Las principales plataformas operan 24/7 y depositan en minutos. La CONDUSEF supervisa a las entidades de crédito para garantizar prácticas transparentes.</p>
+          </article>
+
+          <article class="pais-card">
+            <h3>🇨🇴 Préstamos online en Colombia</h3>
+            <p>En Colombia los créditos rápidos online oscilan entre <strong>$100.000 y $3.000.000 COP</strong>. El desembolso es inmediato en muchas plataformas. La Superintendencia Financiera de Colombia regula y supervisa a los prestamistas autorizados.</p>
+          </article>
+
+          <article class="pais-card">
+            <h3>🇺🇸 Préstamos rápidos para hispanos en EE.UU.</h3>
+            <p>
+              En Estados Unidos, los hispanos pueden acceder a préstamos rápidos de <strong>$50 a $10.000 USD</strong>
+              sin necesidad de un historial crediticio establecido. Entidades como Oportun están específicamente
+              diseñadas para la comunidad latina y aceptan solicitantes con ITIN (sin SSN).
+              El CFPB (Consumer Financial Protection Bureau) regula y supervisa a los prestamistas para
+              garantizar prácticas transparentes.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-text">prestamorapido.pro</span>
+          <p class="footer-tagline">Comparador informativo gratuito</p>
+        </div>
+        <nav class="footer-nav" aria-label="Navegación del pie de página">
+          <ul role="list">
+            <li><a href="#how-it-works">Cómo funciona</a></li>
+            <li><a href="#glossary">Glosario</a></li>
+            <li><a href="#" id="footerPrivacy">Política de privacidad</a></li>
+            <li><a href="#" id="footerLegal">Aviso legal</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Reguladores por país -->
+      <div class="footer-regulators" id="footerRegulators" aria-label="Organismos reguladores">
+        <!-- Generado dinámicamente por app.js -->
+      </div>
+
+      <!-- Aviso legal completo -->
+      <aside class="footer-disclaimer" role="note" aria-label="Aviso legal">
+        <p><strong>prestamorapido.pro</strong> es un comparador informativo independiente. No somos una entidad financiera, no intermediamos en la concesión de créditos y no cobramos comisiones a los usuarios. La información mostrada tiene carácter orientativo y puede no reflejar las condiciones actuales de cada entidad. Las condiciones finales dependen de la evaluación de cada prestamista. Consulta siempre directamente con la entidad antes de solicitar cualquier producto financiero.</p>
+      </aside>
+
+      <p class="footer-copy">© 2026 prestamorapido.pro</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════
+       COOKIE BANNER
+  ═══════════════════════════════════ -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc" hidden>
+    <div class="cookie-inner">
+      <p id="cookieTitle" class="cookie-title"><strong>Usamos cookies</strong></p>
+      <p id="cookieDesc" class="cookie-text">Utilizamos cookies propias y de terceros (publicidad) para mejorar tu experiencia. Puedes aceptarlas o rechazarlas. Tu elección se guarda en tu navegador.</p>
+      <div class="cookie-actions">
+        <button class="btn-cookie-accept" id="cookieAccept" type="button">Aceptar</button>
+        <button class="btn-cookie-reject" id="cookieReject" type="button">Rechazar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/analytics.js" defer></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

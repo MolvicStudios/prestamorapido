@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://prestamorapido.pro/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://prestamorapido.pro/?pais=es"/>
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://prestamorapido.pro/?pais=mx"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://prestamorapido.pro/?pais=co"/>
+  </url>
+
+</urlset>

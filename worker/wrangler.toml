@@ -1,0 +1,15 @@
+name = "minicreditos-groq"
+main = "index.js"
+compatibility_date = "2024-01-01"
+account_id = "dab7dafa25a5e286353b2de092fc039a"
+
+# GROQ_API_KEY se configura como secret, NO como var:
+# wrangler secret put GROQ_API_KEY
+
+[vars]
+# Variables de entorno públicas (no secretos) aquí si hiciera falta
+
+[env.production]
+routes = [
+  { pattern = "api.minicreditos.pro/*", zone_name = "minicreditos.pro" }
+]
