@@ -101,6 +101,8 @@
 
   // JS errors
   window.addEventListener('error', function (e) {
+    var src = (e.filename || '')
+    if (src && src.indexOf(SITE) === -1 && src.indexOf(location.hostname) === -1) return
     send('js_error', { error_msg: (e.message || 'Unknown').substring(0, 150) })
   })
 
