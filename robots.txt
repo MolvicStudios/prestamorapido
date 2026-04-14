@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
+Disallow: /assets/
+Disallow: /*.json$
+Disallow: /api/
+Disallow: /node_modules/
+Disallow: /_workers/
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
 
 Sitemap: https://prestamorapido.pro/sitemap.xml
