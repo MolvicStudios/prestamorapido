@@ -122,18 +122,8 @@
 
   // ── AD DETECTION (DOM) ──
   function detectAds() {
-    var ads = { adsterra: false, adsense: false, mylead: false, adblocker: false }
+    var ads = { adsense: false, mylead: false, adblocker: false }
 
-    // Adsterra: Social Bar, Native Banner, iframes
-    var adsterraSel = [
-      'div[id*="adsterra"]', 'div[id*="ad-banner"]',
-      'iframe[src*="adsterra"]', 'iframe[src*="adstera"]',
-      'script[src*="adsterra"]', 'ins.adsterra',
-      'div[class*="adsterra"]'
-    ]
-    for (var i = 0; i < adsterraSel.length; i++) {
-      if (document.querySelector(adsterraSel[i])) { ads.adsterra = true; break }
-    }
 
     // AdSense
     var adsenseSel = ['ins.adsbygoogle', 'script[src*="adsbygoogle"]', 'div[id*="google_ads"]']
@@ -157,7 +147,6 @@
       ads.adblocker = (bait.offsetHeight === 0 || bait.clientHeight === 0 || getComputedStyle(bait).display === 'none')
       try { document.body.removeChild(bait) } catch(x) {}
       send('ad_status', {
-        ad_adsterra: ads.adsterra,
         ad_adsense:  ads.adsense,
         ad_mylead:   ads.mylead,
         ad_blocker:  ads.adblocker
