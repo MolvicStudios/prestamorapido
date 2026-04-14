@@ -1,0 +1,5 @@
+# Redirect www to non-www
+https://www.prestamorapido.pro/* https://prestamorapido.pro/:splat 301
+
+# Redirect index.html to clean URL
+/index.html / 301
